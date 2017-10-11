@@ -41,11 +41,25 @@ public class FrontCompression {
             return "";
         }
 
+        String[] temp = corpus.split("\n");
+        String table = "";
+        int total = 0;
+        for (int i = 0; i < temp.length; i++) {
+            String prevWord = null;
+            String currWord = temp[i];
+            total = total + longestPrefix(prevWord, currWord);
+            table = total + " " + currWord.substring(longestPrefix(prevWord, currWord)) + "\n";
+            prevWord = currWord;
+
+        }
+
+
         /*
          * Complete this function.
          */
 
-        return "";
+
+        return table;
     }
 
     /**
@@ -68,6 +82,9 @@ public class FrontCompression {
          * Complete this function.
          */
 
+        String[] temp= corpus.split("\n");
+        for (int i = 0; i < temp.length; i++)
+
         return "";
     }
 
@@ -79,10 +96,18 @@ public class FrontCompression {
      * @return the length of the common prefix between the two strings
      */
     private static int longestPrefix(final String firstString, final String secondString) {
+
+        String s = "";
+        for(int i = 0; i < firstString.length(); i++) {
+            while(firstString.charAt(i)==firstString.charAt(i)) {
+                s = s + firstString.charAt(i);
+            }
+
+        }
         /*
          * Complete this function.
          */
-        return 0;
+        return s.length();
     }
 
     /**
